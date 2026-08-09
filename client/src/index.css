@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+    --color-secondary: #0284c7;
+    --color-accent: #f97316;
+    --color-background: #f1f5f9;
+    --color-surface: #ffffff;
+    --color-surface-elevated: #ffffff;
+    --color-border: #e2e8f0;
+    --color-text: #0f172a;
+    --color-text-muted: #64748b;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+
+    --bg-mesh-light: radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.05) 0px, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(2, 132, 199, 0.05) 0px, transparent 50%);
+    --bg-mesh-dark: radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.12) 0px, transparent 50%),
+                   radial-gradient(at 100% 0%, rgba(2, 132, 199, 0.10) 0px, transparent 50%);
+  }
+
+  .dark {
+    --color-background: #0b1329;
+    --color-surface: #0f172a;
+    --color-surface-elevated: #1e293b;
+    --color-border: #1e293b;
+    --color-text: #f8fafc;
+    --color-text-muted: #94a3b8;
+  }
+
+  body {
+    @apply bg-[#f1f5f9] dark:bg-[#0b1329] text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white;
+    background-image: var(--bg-mesh-light);
+  }
+
+  .dark body {
+    background-image: var(--bg-mesh-dark);
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300/80 dark:bg-slate-700/80 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+}
+
+/* Glassmorphism & Elevation utilities */
+.glass-panel {
+  @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 shadow-md shadow-slate-200/40 dark:shadow-none;
+}
+
+.glass-card {
+  @apply bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-150;
+}
+
+.glass-floating {
+  @apply bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-800/90 shadow-lg shadow-slate-900/5 dark:shadow-black/20;
+}
+
+/* Color-coded Action Buttons */
+.btn-connect {
+  @apply bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm;
+}
+
+.btn-message {
+  @apply bg-cyan-600 hover:bg-cyan-700 text-white font-medium shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm;
+}
+
+.btn-accept {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white font-medium shadow-sm hover:shadow-md active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm;
+}
+
+.btn-reject {
+  @apply bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 font-medium border border-rose-500/30 active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm;
+}
+
+.btn-pending {
+  @apply bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium border border-amber-500/30 rounded-xl px-3 py-1.5 text-xs inline-flex items-center gap-1.5;
+}
+
+.btn-teal {
+  @apply bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/30 rounded-xl px-3 py-1 text-xs font-medium;
+}
+
+/* Custom Micro Animations */
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
