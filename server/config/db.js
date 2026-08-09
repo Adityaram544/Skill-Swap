@@ -17,6 +17,8 @@ const cleanFakeDemoUsers = async () => {
   } catch (err) {
     console.error('cleanFakeDemoUsers error:', err.message);
   }
+};
+
 const connectDB = async () => {
   const connStr = process.env.MONGODB_URI || process.env.MONGO_URI;
 
