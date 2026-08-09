@@ -17,13 +17,11 @@ const cleanFakeDemoUsers = async () => {
   } catch (err) {
     console.error('cleanFakeDemoUsers error:', err.message);
   }
-};
-
 const connectDB = async () => {
-  const connStr = process.env.MONGODB_URI;
+  const connStr = process.env.MONGODB_URI || process.env.MONGO_URI;
 
   if (!connStr) {
-    console.error('❌ MONGODB_URI is not defined in .env file!');
+    console.error('❌ MONGODB_URI or MONGO_URI is not defined in environment variables!');
     process.exit(1);
   }
 
